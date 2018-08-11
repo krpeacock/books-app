@@ -11,10 +11,11 @@ export const createElement = ({ type, attributes = {}, children = [] }) => {
   });
   children.forEach(childElement => {
     childElement;
-    if (typeof childElement === "object") {
+    if (childElement instanceof Component) {
+      newElement.append(childElement.render());
+    } else if (typeof childElement === "object") {
       newElement.append(createElement(childElement));
-    }
-    if (typeof childElement === "string") {
+    } else if (typeof childElement === "string") {
       newElement.innerText = childElement;
     }
     return;

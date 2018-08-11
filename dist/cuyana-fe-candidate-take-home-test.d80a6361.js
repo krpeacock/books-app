@@ -135,10 +135,11 @@ var createElement = exports.createElement = function createElement(_ref) {
   });
   children.forEach(function (childElement) {
     childElement;
-    if ((typeof childElement === "undefined" ? "undefined" : _typeof(childElement)) === "object") {
+    if (childElement instanceof Component) {
+      newElement.append(childElement.render());
+    } else if ((typeof childElement === "undefined" ? "undefined" : _typeof(childElement)) === "object") {
       newElement.append(createElement(childElement));
-    }
-    if (typeof childElement === "string") {
+    } else if (typeof childElement === "string") {
       newElement.innerText = childElement;
     }
     return;
@@ -195,6 +196,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var rootDiv = document.getElementById("root");
 var content = _App2.default.render(); //?
+rootDiv.innerHTML = "";
 rootDiv.appendChild(content);
 },{"./src/App":"src/App.js"}],"../../.nvm/versions/node/v8.9.4/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
