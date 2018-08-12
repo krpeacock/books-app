@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import Book from "./Book";
 import "babel-polyfill";
@@ -14,8 +14,8 @@ export default class BookCollection extends React.Component {
 
   mapBooks() {
     if (this.state.books) {
-      return this.state.books.map(book => {
-        return <Book book={book} />;
+      return this.state.books.map((book, index) => {
+        return <Book book={book} key={`book#${index}`} />;
       });
     }
     return null;
@@ -34,20 +34,19 @@ export default class BookCollection extends React.Component {
     const loadFunc = this.loadFunc.bind(this);
     const mapBooks = this.mapBooks.bind(this);
     return (
-      <div className="book-collection">
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={loadFunc}
-          hasMore={hasMore}
-          loader={
-            <div className="loader" key={0}>
-              Loading ...
-            </div>
-          }
-        >
-          {mapBooks()}
-        </InfiniteScroll>
-      </div>
+      <InfiniteScroll
+        pageStart={0}
+        loadMore={loadFunc}
+        hasMore={hasMore}
+        className="book-collection"
+        loader={
+          <div className="loader" key={0}>
+            Loading ...
+          </div>
+        }
+      >
+        {mapBooks()}
+      </InfiniteScroll>
     );
   }
 }

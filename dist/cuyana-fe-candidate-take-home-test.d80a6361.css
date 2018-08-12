@@ -3,9 +3,9 @@
   src: url("Oswald-ExtraLight.19849c1e.ttf") format("truetype"); }
 
 body {
+  margin-left: 0;
   width: 100vw;
-  overflow-x: hidden;
-  margin-left: 0; }
+  overflow-x: hidden; }
 
 h1,
 h2,
@@ -17,134 +17,159 @@ a {
   font-family: Verdana, Geneva, Tahoma, sans-serif; }
 
 #root {
-  width: 90vw;
+  position: relative;
   margin: 0 5vw 0 5vw;
-  position: relative; }
+  width: 90vw; }
   #root .content-wrapper {
     padding-bottom: 220px; }
   #root a {
     text-decoration: none;
     color: black; }
   #root header {
-    margin-top: 30px; }
+    display: flex;
+    margin-top: 30px;
+    max-width: 90vw; }
     #root header h1 {
       margin-top: 0; }
       #root header h1 .larger {
-        font-size: 60px;
-        line-height: 50px; }
+        line-height: 50px;
+        font-size: 60px; }
       #root header h1 .smaller {
-        font-size: 30px;
         height: 30px;
-        line-height: 30px; }
+        line-height: 30px;
+        font-size: 30px; }
     #root header nav #menu-icon {
-      background-image: url("bars.1174b2db.svg");
       display: block;
       position: absolute;
       top: 30px;
-      right: 5vw;
-      height: 37px;
-      width: 30px; }
+      right: 0;
+      background-image: url("bars.1174b2db.svg");
+      width: 30px;
+      height: 37px; }
     #root header nav ul {
-      visibility: hidden;
-      width: 300px;
-      height: 200px;
       display: flex;
-      text-align: right;
-      flex-direction: column;
       position: absolute;
       top: 60px;
       right: -300px;
+      flex-direction: column;
       justify-content: center;
+      transition: right 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;
+      visibility: hidden;
       background-color: #8c8c8c;
       padding: 0;
-      transition: right 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s; }
+      width: 300px;
+      height: 200px;
+      text-align: right; }
       #root header nav ul.open {
-        visibility: visible;
-        right: 0px; }
+        right: 0px;
+        visibility: visible; }
       #root header nav ul li {
         opacity: 1;
-        margin-left: 0;
         margin-right: 5vw;
         margin-bottom: 12px;
+        margin-left: 0;
         list-style-type: none; }
   #root .hero-container {
-    z-index: -1;
     display: flex;
     flex-direction: column;
     align-content: center;
+    z-index: -1;
     padding-top: 20px; }
     #root .hero-container img {
       width: 100%; }
     #root .hero-container .well {
       position: relative;
       top: -58px;
-      width: 80%;
+      opacity: 0.85;
       margin: auto;
-      padding-bottom: 20px;
       background-color: #374244;
-      opacity: 0.85; }
+      padding-bottom: 20px;
+      width: 80%; }
       #root .hero-container .well h2,
       #root .hero-container .well p,
       #root .hero-container .well a {
-        color: white;
-        padding: 0 20px 0 20px; }
+        padding: 0 20px 0 20px;
+        color: white; }
       #root .hero-container .well a {
         text-decoration: underline; }
   #root footer {
-    margin-top: -160px;
-    height: 160px;
-    width: 90vw;
+    display: flex;
     position: absolute;
     bottom: 0;
     left: 0;
-    display: flex;
+    clear: both;
     flex-direction: column;
     align-items: center;
-    clear: both; }
+    margin-top: -160px;
+    width: 90vw;
+    height: 160px; }
     #root footer img {
-      height: 60px;
       display: block;
+      margin-right: 15px;
       width: 60px;
-      color: black;
-      margin-right: 15px; }
+      height: 60px;
+      color: black; }
     #root footer p {
       font-size: 10px; }
     #root footer a {
-      font-size: 12px;
-      margin-bottom: 8px; }
-  #root .book-collection div {
+      margin-bottom: 8px;
+      font-size: 12px; }
+  #root .book-collection {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
     align-content: space-between;
     align-items: space-between;
-    width: 100%; }
-    #root .book-collection div .book {
-      transition: display 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;
+    justify-content: space-between; }
+    #root .book-collection .book-wrapper {
       display: inline-flex;
-      justify-self: space-between;
-      padding: 10px;
+      position: relative;
       flex-direction: column;
+      transition: display 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;
       margin: 0 auto 15px auto;
+      border: 1px solid black;
+      padding: 10px;
       padding-bottom: auto;
       width: 40vw;
-      max-width: 45vw;
       min-width: 300px;
-      height: auto;
-      border: 1px solid black; }
-      @media (max-width: 750px) {
-        #root .book-collection div .book {
-          display: flex;
-          max-width: 90vw; } }
-      #root .book-collection div .book h3 {
+      max-width: 45vw;
+      height: auto; }
+      #root .book-collection .book-wrapper #close {
+        position: absolute;
+        top: 25px;
+        right: 90px; }
+        #root .book-collection .book-wrapper #close img {
+          width: 35px;
+          height: 30px; }
+      #root .book-collection .book-wrapper .book-content h3 {
         margin: 5px 0 5px 0;
         font-size: 2rem; }
-      #root .book-collection div .book p {
+      #root .book-collection .book-wrapper .book-content p {
         margin-top: 0; }
-      #root .book-collection div .book img {
-        max-width: 100%;
-        max-height: 400px;
+      #root .book-collection .book-wrapper .book-content h3,
+      #root .book-collection .book-wrapper .book-content p {
         margin: auto;
+        width: 100%; }
+      #root .book-collection .book-wrapper .book-content img {
+        margin: auto;
+        margin-bottom: 5%;
         min-width: 300px;
-        margin-bottom: 5%; }
+        max-width: 100%;
+        max-height: 400px; }
+      #root .book-collection .book-wrapper.expanded {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background-color: black;
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 100vw;
+        max-width: 100vw;
+        height: 100%;
+        overflow: auto; }
+        #root .book-collection .book-wrapper.expanded .book-content {
+          margin: auto;
+          background-color: white;
+          width: 80vw;
+          height: 100%; }

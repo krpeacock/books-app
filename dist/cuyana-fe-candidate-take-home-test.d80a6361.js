@@ -26072,40 +26072,174 @@ module.exports = exports['default'];
 },{"react":"node_modules/react/index.js","prop-types":"node_modules/prop-types/index.js"}],"node_modules/react-infinite-scroller/index.js":[function(require,module,exports) {
 module.exports = require('./dist/InfiniteScroll')
 
-},{"./dist/InfiniteScroll":"node_modules/react-infinite-scroller/dist/InfiniteScroll.js"}],"src/Book.js":[function(require,module,exports) {
+},{"./dist/InfiniteScroll":"node_modules/react-infinite-scroller/dist/InfiniteScroll.js"}],"static/images/window-close.svg":[function(require,module,exports) {
+module.exports = "/window-close.3a8aa177.svg";
+},{}],"src/Book.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _windowClose = require("../static/images/window-close.svg");
+
+var _windowClose2 = _interopRequireDefault(_windowClose);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (_ref) {
-  var book = _ref.book;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  return _react2.default.createElement(
-    "div",
-    { className: "book" },
-    _react2.default.createElement(
-      "h3",
-      null,
-      book.title
-    ),
-    _react2.default.createElement(
-      "p",
-      null,
-      "By ",
-      book.author
-    ),
-    _react2.default.createElement("img", { src: "/static/" + book.imageLink })
-  );
-};
-},{"react":"node_modules/react/index.js"}],"books.json":[function(require,module,exports) {
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Book = function (_Component) {
+  _inherits(Book, _Component);
+
+  function Book(props) {
+    _classCallCheck(this, Book);
+
+    var _this = _possibleConstructorReturn(this, (Book.__proto__ || Object.getPrototypeOf(Book)).call(this, props));
+
+    _this.state = {
+      expanded: false
+    };
+    return _this;
+  }
+
+  _createClass(Book, [{
+    key: "escFunction",
+    value: function escFunction(event) {
+      if (event.keyCode === 27) {
+        this.closeBook();
+        //Do whatever when esc is pressed
+      }
+    }
+  }, {
+    key: "expandBook",
+    value: function expandBook() {
+      var _this2 = this;
+
+      this.setState({ expanded: true }, function () {
+        document.getElementById("close").focus();
+        document.addEventListener("keydown", _this2.escFunction.bind(_this2), false);
+      });
+    }
+  }, {
+    key: "closeBook",
+    value: function closeBook() {
+      var _this3 = this;
+
+      this.setState({ expanded: false }, function () {
+        document.removeEventListener("keydown", _this3.escFunction.bind(_this3), false);
+      });
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      document.removeEventListener("keydown", this.escFunction.bind(this), false);
+    }
+  }, {
+    key: "handleKeyPress",
+    value: function handleKeyPress(e) {
+      if (e.key === "Enter" || e.key === " ") {
+        if (e.target.id === "close") {
+          this.closeBook();
+        }
+        if (e.target.className === "book-content") {
+          this.expandBook();
+        }
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var book = this.props.book;
+      var expanded = this.state.expanded;
+
+      var expandBook = this.expandBook.bind(this);
+      var closeBook = this.closeBook.bind(this);
+      var handleKeyPress = this.handleKeyPress.bind(this);
+      return _react2.default.createElement(
+        "div",
+        { className: "book-wrapper " + (expanded ? "expanded" : "") },
+        expanded ? _react2.default.createElement(
+          "a",
+          {
+            id: "close",
+            onClick: closeBook,
+            tabIndex: 1,
+            onKeyPress: handleKeyPress
+          },
+          _react2.default.createElement("img", { src: _windowClose2.default, alt: "close window" })
+        ) : null,
+        _react2.default.createElement(
+          "div",
+          {
+            className: "book-content",
+            onClick: expandBook,
+            onKeyPress: handleKeyPress,
+            tabIndex: 0
+          },
+          _react2.default.createElement(
+            "h3",
+            null,
+            book.title
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            "By ",
+            book.author
+          ),
+          _react2.default.createElement("img", { src: "/static/" + book.imageLink }),
+          expanded ? _react2.default.createElement(
+            _react.Fragment,
+            null,
+            _react2.default.createElement(
+              "h3",
+              null,
+              "Book Info"
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              book.title + " was written by " + book.author + " in " + book.year + ". It was initially released in " + book.language + " and was published for distribution in " + book.country + "."
+            ),
+            _react2.default.createElement("br", null),
+            _react2.default.createElement(
+              "p",
+              null,
+              "Page count: ",
+              book.pages
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "Read more on ",
+              _react2.default.createElement(
+                "a",
+                { href: book.link },
+                "Wikipedia"
+              )
+            )
+          ) : null
+        )
+      );
+    }
+  }]);
+
+  return Book;
+}(_react.Component);
+
+exports.default = Book;
+},{"react":"node_modules/react/index.js","../static/images/window-close.svg":"static/images/window-close.svg"}],"books.json":[function(require,module,exports) {
 module.exports = [{
   "author": "Chinua Achebe",
   "country": "Nigeria",
@@ -27304,8 +27438,8 @@ var BookCollection = function (_React$Component) {
     key: "mapBooks",
     value: function mapBooks() {
       if (this.state.books) {
-        return this.state.books.map(function (book) {
-          return _react2.default.createElement(_Book2.default, { book: book });
+        return this.state.books.map(function (book, index) {
+          return _react2.default.createElement(_Book2.default, { book: book, key: "book#" + index });
         });
       }
       return null;
@@ -27352,22 +27486,19 @@ var BookCollection = function (_React$Component) {
       var loadFunc = this.loadFunc.bind(this);
       var mapBooks = this.mapBooks.bind(this);
       return _react2.default.createElement(
-        "div",
-        { className: "book-collection" },
-        _react2.default.createElement(
-          _reactInfiniteScroller2.default,
-          {
-            pageStart: 0,
-            loadMore: loadFunc,
-            hasMore: hasMore,
-            loader: _react2.default.createElement(
-              "div",
-              { className: "loader", key: 0 },
-              "Loading ..."
-            )
-          },
-          mapBooks()
-        )
+        _reactInfiniteScroller2.default,
+        {
+          pageStart: 0,
+          loadMore: loadFunc,
+          hasMore: hasMore,
+          className: "book-collection",
+          loader: _react2.default.createElement(
+            "div",
+            { className: "loader", key: 0 },
+            "Loading ..."
+          )
+        },
+        mapBooks()
       );
     }
   }]);
@@ -27621,7 +27752,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55414' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51091' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
