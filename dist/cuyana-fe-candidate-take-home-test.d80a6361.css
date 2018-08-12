@@ -121,21 +121,30 @@ a {
     align-items: space-between;
     width: 100%; }
     #root .book-collection div .book {
+      transition: display 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;
       display: inline-flex;
       justify-self: space-between;
       padding: 10px;
       flex-direction: column;
-      margin: auto;
-      margin-bottom: 15px;
+      margin: 0 auto 15px auto;
+      padding-bottom: auto;
       width: 40vw;
       max-width: 45vw;
       min-width: 300px;
+      height: auto;
       border: 1px solid black; }
+      @media (max-width: 750px) {
+        #root .book-collection div .book {
+          display: flex;
+          max-width: 90vw; } }
       #root .book-collection div .book h3 {
         margin: 5px 0 5px 0;
         font-size: 2rem; }
       #root .book-collection div .book p {
         margin-top: 0; }
       #root .book-collection div .book img {
-        width: 100%;
-        min-width: 300px; }
+        max-width: 100%;
+        max-height: 400px;
+        margin: auto;
+        min-width: 300px;
+        margin-bottom: 5%; }

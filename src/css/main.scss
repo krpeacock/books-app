@@ -4,9 +4,9 @@
 }
 // Some generic rules
 body {
+  margin-left: 0;
   width: 100vw;
   overflow-x: hidden;
-  margin-left: 0;
 }
 
 // Text rules
@@ -28,9 +28,9 @@ $rootMargin: (100vw - $rootWidth) / 2;
 $footerHeight: 160px;
 
 #root {
-  width: $rootWidth;
-  margin: 0 $rootMargin 0 $rootMargin;
   position: relative;
+  margin: 0 $rootMargin 0 $rootMargin;
+  width: $rootWidth;
 
   .content-wrapper {
     padding-bottom: $footerHeight + 60px;
@@ -41,64 +41,67 @@ $footerHeight: 160px;
   }
 
   header {
+    display: flex;
     margin-top: 30px;
+    max-width: ($rootWidth);
+
     h1 {
       margin-top: 0;
       .larger {
-        font-size: 60px;
         line-height: 50px;
+        font-size: 60px;
       }
       .smaller {
-        font-size: 30px;
         height: 30px;
         line-height: 30px;
+        font-size: 30px;
       }
     }
     nav {
       #menu-icon {
-        background-image: url("../../static/images/bars.svg");
         display: block;
         position: absolute;
         top: 30px;
         right: $rootMargin;
-        height: 37px;
+        background-image: url("../../static/images/bars.svg");
         width: 30px;
+        height: 37px;
       }
       ul {
-        visibility: hidden;
-        width: 300px;
-        height: 200px;
         display: flex;
-        text-align: right;
-        flex-direction: column;
         position: absolute;
         top: 60px;
         right: -300px;
+        flex-direction: column;
         justify-content: center;
+        transition: right 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;
+        visibility: hidden;
         background-color: #8c8c8c;
         padding: 0;
-        transition: right 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;
+        width: 300px;
+        height: 200px;
+        text-align: right;
 
         &.open {
-          visibility: visible;
           right: 0px;
+          visibility: visible;
         }
 
         li {
           opacity: 1;
-          margin-left: 0;
           margin-right: $rootMargin;
           margin-bottom: 12px;
+          margin-left: 0;
           list-style-type: none;
         }
       }
     }
   }
   .hero-container {
-    z-index: -1;
     display: flex;
     flex-direction: column;
     align-content: center;
+    z-index: -1;
     padding-top: 20px;
     img {
       width: 100%;
@@ -106,17 +109,16 @@ $footerHeight: 160px;
     .well {
       position: relative;
       top: -58px;
-
-      width: 80%;
-      margin: auto;
-      padding-bottom: 20px;
-      background-color: #374244;
       opacity: 0.85;
+      margin: auto;
+      background-color: #374244;
+      padding-bottom: 20px;
+      width: 80%;
       h2,
       p,
       a {
-        color: white;
         padding: 0 20px 0 20px;
+        color: white;
       }
       a {
         text-decoration: underline;
@@ -125,53 +127,53 @@ $footerHeight: 160px;
   }
 
   footer {
-    margin-top: -$footerHeight;
-    height: $footerHeight;
-    width: $rootWidth;
+    display: flex;
     position: absolute;
     bottom: 0;
     left: 0;
-    display: flex;
+    clear: both;
     flex-direction: column;
     align-items: center;
-    clear: both;
+    margin-top: -$footerHeight;
+    width: $rootWidth;
+    height: $footerHeight;
 
     img {
-      height: 60px;
       display: block;
-      width: 60px;
-      color: black;
       margin-right: 15px;
+      width: 60px;
+      height: 60px;
+      color: black;
     }
 
     p {
       font-size: 10px;
     }
     a {
-      font-size: 12px;
       margin-bottom: 8px;
+      font-size: 12px;
     }
   }
   .book-collection div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
     align-content: space-between;
     align-items: space-between;
+    justify-content: space-between;
     width: 100%;
     .book {
       display: inline-flex;
-      justify-self: space-between;
-      padding: 10px;
       flex-direction: column;
-      margin: auto;
-      margin-bottom: 15px;
-      width: ($rootWidth / 2) - $rootMargin;
-      max-width: ($rootWidth / 2);
-      min-width: 300px;
-
+      transition: display 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;
+      margin: 0 auto 15px auto;
       border: 1px solid black;
+      padding: 10px;
+      padding-bottom: auto;
+      width: ($rootWidth / 2) - $rootMargin;
+      min-width: 300px;
+      max-width: ($rootWidth / 2);
+      height: auto;
 
       h3 {
         margin: 5px 0 5px 0;
@@ -181,8 +183,13 @@ $footerHeight: 160px;
         margin-top: 0;
       }
       img {
-        width: 100%;
+        margin: auto;
+        margin-bottom: 5%;
         min-width: 300px;
+        max-width: 100%;
+        max-height: 400px;
+      }
+      @media (max-width: 750px) {
       }
     }
   }

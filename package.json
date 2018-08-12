@@ -14,6 +14,8 @@
     "babel-core": "^6.26.3",
     "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-polyfill": "^6.26.0",
-    "node-sass": "^4.9.3"
+    "node-sass": "^4.9.3",
+    "stylelint": "^9.4.0",
+    "stylelint-config-concentric-order": "^3.3.2"
   }
 }
