@@ -9,7 +9,7 @@ export default ({ isMenuOpen, toggleMenu }) => (
     </h1>
     <nav>
       <a href="" id="menu-icon" onClick={toggleMenu} />
-      <ul class={isMenuOpen ? "open" : ""}>
+      <ul className={isMenuOpen ? "open" : ""}>
         <li>
           <a href="#">Table of Contents</a>
         </li>

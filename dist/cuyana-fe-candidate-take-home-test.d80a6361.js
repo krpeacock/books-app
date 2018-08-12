@@ -19788,7 +19788,7 @@ exports.default = function (_ref) {
       _react2.default.createElement("a", { href: "", id: "menu-icon", onClick: toggleMenu }),
       _react2.default.createElement(
         "ul",
-        { "class": isMenuOpen ? "open" : "" },
+        { className: isMenuOpen ? "open" : "" },
         _react2.default.createElement(
           "li",
           null,
@@ -19820,7 +19820,53 @@ exports.default = function (_ref) {
     )
   );
 };
-},{"react":"node_modules/react/index.js"}],"src/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"static/images/open-book.jpg":[function(require,module,exports) {
+module.exports = "/open-book.a10fcb0d.jpg";
+},{}],"src/Hero.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _openBook = require("../static/images/open-book.jpg");
+
+var _openBook2 = _interopRequireDefault(_openBook);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  return _react2.default.createElement(
+    "div",
+    { className: "hero-container" },
+    _react2.default.createElement("img", { src: _openBook2.default, alt: "" }),
+    _react2.default.createElement(
+      "div",
+      { className: "well" },
+      _react2.default.createElement(
+        "h2",
+        null,
+        "WHERE THE STORY BEGINS."
+      ),
+      _react2.default.createElement(
+        "p",
+        null,
+        "Integer id erat ligula. Vivamus eu turpis posuere, vehicula magna mattis,pellentesque orci. Cras consequat, leo id dignissim porttitor, lorem nulla imperdiet felis, vitae fermentum risus lorem ac lacus. Mauris eget maximus nisl. Proin molestie quam et luctus maximus.",
+        " "
+      ),
+      _react2.default.createElement(
+        "a",
+        null,
+        "LEARN MORE"
+      )
+    )
+  );
+};
+},{"react":"node_modules/react/index.js","../static/images/open-book.jpg":"static/images/open-book.jpg"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19836,6 +19882,10 @@ var _react2 = _interopRequireDefault(_react);
 var _Header = require("./Header");
 
 var _Header2 = _interopRequireDefault(_Header);
+
+var _Hero = require("./Hero");
+
+var _Hero2 = _interopRequireDefault(_Hero);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19874,7 +19924,8 @@ var App = function (_Component) {
       return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement(_Header2.default, { toggleMenu: toggleMenu, isMenuOpen: isMenuOpen })
+        _react2.default.createElement(_Header2.default, { toggleMenu: toggleMenu, isMenuOpen: isMenuOpen }),
+        _react2.default.createElement(_Hero2.default, null)
       );
     }
   }]);
@@ -19883,7 +19934,7 @@ var App = function (_Component) {
 }(_react.Component);
 
 exports.default = App;
-},{"react":"node_modules/react/index.js","./Header":"src/Header.js"}],"../../.nvm/versions/node/v8.9.4/lib/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Header":"src/Header.js","./Hero":"src/Hero.js"}],"../../.nvm/versions/node/v8.9.4/lib/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {

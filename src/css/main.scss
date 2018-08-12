@@ -2,12 +2,30 @@
   font-family: "Oswald ExtraLight";
   src: url("../../static/oswald/Oswald-ExtraLight.ttf") format("truetype");
 }
+$OswaldLight: "Oswald ExtraLight", Verdana, Geneva, Tahoma, sans-serif;
+$Verdana: Verdana, Geneva, Tahoma, sans-serif;
+// Some generic rules
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  margin-left: 0;
+}
+
+// Text rules
+h1,
+h2 {
+  font-family: $OswaldLight;
+}
+p,
+a {
+  font-family: $Verdana;
+}
+
 #root {
   width: 90vw;
-  margin: auto;
+  margin: 0 5vw 0 5vw;
 
   a {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-decoration: none;
     color: black;
   }
@@ -15,7 +33,6 @@
   header {
     margin-top: 30px;
     h1 {
-      font-family: "Oswald ExtraLight", Verdana, Geneva, Tahoma, sans-serif;
       margin-top: 0;
       .larger {
         font-size: 60px;
@@ -33,7 +50,7 @@
         display: block;
         position: absolute;
         top: 30px;
-        right: 10vw;
+        right: 5vw;
         height: 37px;
         width: 30px;
       }
@@ -48,8 +65,9 @@
         right: -300px;
         justify-content: center;
         background-color: #8c8c8c;
-        opacity: 0.7;
         padding: 0;
+        transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s,
+          z-index 0s linear 0.01s;
 
         &.open {
           right: 0px;
@@ -58,10 +76,39 @@
         li {
           opacity: 1;
           margin-left: 0;
-          margin-right: 10vw;
+          margin-right: 5vw;
           margin-bottom: 12px;
           list-style-type: none;
         }
+      }
+    }
+  }
+  .hero-container {
+    position: relative;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding-top: 20px;
+    img {
+      position: absolute;
+      width: 100%;
+    }
+    .well {
+      top: 0;
+      width: 80%;
+      margin: auto;
+      padding-bottom: 20px;
+      background-color: #374244;
+      opacity: 0.85;
+      h2,
+      p,
+      a {
+        color: white;
+        padding: 0 20px 0 20px;
+      }
+      a {
+        text-decoration: underline;
       }
     }
   }

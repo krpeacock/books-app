@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header";
+import Hero from "./Hero";
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class App extends Component {
     return (
       <div>
         <Header toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
+        <Hero />
       </div>
     );
   }
