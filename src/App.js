@@ -1,9 +1,9 @@
-import { Component } from "./helpers";
+import React, { Component } from "react";
 
-const App = new Component({
-  type: "div",
-  attributes: { id: "App" },
-  children: [{ type: "h1", children: ["Hello World"] }]
-});
+class App extends Component {
+  render() {
+    return <h1>Hello Foobar</h1>;
+  }
+}
 
 export default App;

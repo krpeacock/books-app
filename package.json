@@ -2,5 +2,13 @@
   "name": "cuyana-fe-candidate-take-home-test",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3"
+  }
 }
