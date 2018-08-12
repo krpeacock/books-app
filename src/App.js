@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Header from "./Header";
 import Hero from "./Hero";
+import BookCollection from "./BookCollection";
 import Footer from "./Footer";
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
         <div className="content-wrapper">
           <Header toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
           <Hero />
+          <BookCollection />
         </div>
         <Footer />
       </Fragment>
