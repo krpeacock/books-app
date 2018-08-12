@@ -3,8 +3,66 @@
   src: url("../../static/oswald/Oswald-ExtraLight.ttf") format("truetype");
 }
 #root {
-  font-family: "Oswald ExtraLight", Verdana, Geneva, Tahoma, sans-serif;
+  width: 90vw;
+  margin: auto;
+
+  a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    color: black;
+  }
 
   header {
+    margin-top: 30px;
+    h1 {
+      font-family: "Oswald ExtraLight", Verdana, Geneva, Tahoma, sans-serif;
+      margin-top: 0;
+      .larger {
+        font-size: 60px;
+        line-height: 50px;
+      }
+      .smaller {
+        font-size: 30px;
+        height: 30px;
+        line-height: 30px;
+      }
+    }
+    nav {
+      #menu-icon {
+        background-image: url("../../static/images/bars.svg");
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 10vw;
+        height: 37px;
+        width: 30px;
+      }
+      ul {
+        width: 300px;
+        height: 200px;
+        display: flex;
+        text-align: right;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: -300px;
+        justify-content: center;
+        background-color: #8c8c8c;
+        opacity: 0.7;
+        padding: 0;
+
+        &.open {
+          right: 0px;
+        }
+
+        li {
+          opacity: 1;
+          margin-left: 0;
+          margin-right: 10vw;
+          margin-bottom: 12px;
+          list-style-type: none;
+        }
+      }
+    }
   }
 }

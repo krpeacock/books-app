@@ -3,4 +3,50 @@
   src: url("Oswald-ExtraLight.19849c1e.ttf") format("truetype"); }
 
 #root {
-  font-family: "Oswald ExtraLight", Verdana, Geneva, Tahoma, sans-serif; }
+  width: 90vw;
+  margin: auto; }
+  #root a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    color: black; }
+  #root header {
+    margin-top: 30px; }
+    #root header h1 {
+      font-family: "Oswald ExtraLight", Verdana, Geneva, Tahoma, sans-serif;
+      margin-top: 0; }
+      #root header h1 .larger {
+        font-size: 60px;
+        line-height: 50px; }
+      #root header h1 .smaller {
+        font-size: 30px;
+        height: 30px;
+        line-height: 30px; }
+    #root header nav #menu-icon {
+      background-image: url("bars.1174b2db.svg");
+      display: block;
+      position: absolute;
+      top: 30px;
+      right: 10vw;
+      height: 37px;
+      width: 30px; }
+    #root header nav ul {
+      width: 300px;
+      height: 200px;
+      display: flex;
+      text-align: right;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: -300px;
+      justify-content: center;
+      background-color: #8c8c8c;
+      opacity: 0.7;
+      padding: 0; }
+      #root header nav ul.open {
+        right: 0px; }
+      #root header nav ul li {
+        opacity: 1;
+        margin-left: 0;
+        margin-right: 10vw;
+        margin-bottom: 12px;
+        list-style-type: none; }

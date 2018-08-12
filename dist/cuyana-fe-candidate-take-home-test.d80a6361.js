@@ -19761,16 +19761,62 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function () {
+exports.default = function (_ref) {
+  var isMenuOpen = _ref.isMenuOpen,
+      toggleMenu = _ref.toggleMenu;
   return _react2.default.createElement(
     "header",
     null,
     _react2.default.createElement(
       "h1",
       null,
-      "Aptly",
+      _react2.default.createElement(
+        "span",
+        { className: "larger" },
+        "Aptly"
+      ),
       _react2.default.createElement("br", null),
-      "Named"
+      _react2.default.createElement(
+        "span",
+        { className: "smaller" },
+        "Named"
+      )
+    ),
+    _react2.default.createElement(
+      "nav",
+      null,
+      _react2.default.createElement("a", { href: "", id: "menu-icon", onClick: toggleMenu }),
+      _react2.default.createElement(
+        "ul",
+        { "class": isMenuOpen ? "open" : "" },
+        _react2.default.createElement(
+          "li",
+          null,
+          _react2.default.createElement(
+            "a",
+            { href: "#" },
+            "Table of Contents"
+          )
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          _react2.default.createElement(
+            "a",
+            { href: "#" },
+            "Preface"
+          )
+        ),
+        _react2.default.createElement(
+          "li",
+          null,
+          _react2.default.createElement(
+            "a",
+            { href: "#" },
+            "Epilogue"
+          )
+        )
+      )
     )
   );
 };
@@ -19802,19 +19848,33 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var App = function (_Component) {
   _inherits(App, _Component);
 
-  function App() {
+  function App(props) {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this.state = {
+      isMenuOpen: false
+    };
+    return _this;
   }
 
   _createClass(App, [{
+    key: "toggleMenu",
+    value: function toggleMenu(e) {
+      e.preventDefault();
+      this.setState({ isMenuOpen: !this.state.isMenuOpen });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var toggleMenu = this.toggleMenu.bind(this);
+      var isMenuOpen = this.state.isMenuOpen;
+
       return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement(_Header2.default, null)
+        _react2.default.createElement(_Header2.default, { toggleMenu: toggleMenu, isMenuOpen: isMenuOpen })
       );
     }
   }]);
@@ -19889,7 +19949,7 @@ module.exports = reloadCSS;
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../../static/oswald/Oswald-ExtraLight.ttf":[["Oswald-ExtraLight.19849c1e.ttf","static/oswald/Oswald-ExtraLight.ttf"],"static/oswald/Oswald-ExtraLight.ttf"],"_css_loader":"../../.nvm/versions/node/v8.9.4/lib/node_modules/parcel/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"./../../static/oswald/Oswald-ExtraLight.ttf":[["Oswald-ExtraLight.19849c1e.ttf","static/oswald/Oswald-ExtraLight.ttf"],"static/oswald/Oswald-ExtraLight.ttf"],"./../../static/images/bars.svg":[["bars.1174b2db.svg","static/images/bars.svg"],"static/images/bars.svg"],"_css_loader":"../../.nvm/versions/node/v8.9.4/lib/node_modules/parcel/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = require("react");
@@ -19940,7 +20000,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '56645' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '52772' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
