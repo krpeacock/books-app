@@ -19866,7 +19866,53 @@ exports.default = function () {
     )
   );
 };
-},{"react":"node_modules/react/index.js","../static/images/open-book.jpg":"static/images/open-book.jpg"}],"src/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../static/images/open-book.jpg":"static/images/open-book.jpg"}],"static/images/book-logo.png":[function(require,module,exports) {
+module.exports = "/book-logo.823c386d.png";
+},{}],"src/Footer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _bookLogo = require("../static/images/book-logo.png");
+
+var _bookLogo2 = _interopRequireDefault(_bookLogo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  return _react2.default.createElement(
+    "footer",
+    null,
+    _react2.default.createElement(
+      "a",
+      { href: "#" },
+      "OUR MISSION"
+    ),
+    _react2.default.createElement(
+      "a",
+      { href: "#" },
+      "CONTACT US"
+    ),
+    _react2.default.createElement(
+      "a",
+      { href: "#" },
+      "CAREERS"
+    ),
+    _react2.default.createElement("img", { src: _bookLogo2.default, alt: "Aptly Named logo" }),
+    _react2.default.createElement(
+      "p",
+      null,
+      "\u24B8 2018 Aptly Name LLC. An Aptly Named Technical Challenge"
+    )
+  );
+};
+},{"react":"node_modules/react/index.js","../static/images/book-logo.png":"static/images/book-logo.png"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19886,6 +19932,10 @@ var _Header2 = _interopRequireDefault(_Header);
 var _Hero = require("./Hero");
 
 var _Hero2 = _interopRequireDefault(_Hero);
+
+var _Footer = require("./Footer");
+
+var _Footer2 = _interopRequireDefault(_Footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19922,10 +19972,15 @@ var App = function (_Component) {
       var isMenuOpen = this.state.isMenuOpen;
 
       return _react2.default.createElement(
-        "div",
+        _react.Fragment,
         null,
-        _react2.default.createElement(_Header2.default, { toggleMenu: toggleMenu, isMenuOpen: isMenuOpen }),
-        _react2.default.createElement(_Hero2.default, null)
+        _react2.default.createElement(
+          "div",
+          { className: "content-wrapper" },
+          _react2.default.createElement(_Header2.default, { toggleMenu: toggleMenu, isMenuOpen: isMenuOpen }),
+          _react2.default.createElement(_Hero2.default, null)
+        ),
+        _react2.default.createElement(_Footer2.default, null)
       );
     }
   }]);
@@ -19934,7 +19989,7 @@ var App = function (_Component) {
 }(_react.Component);
 
 exports.default = App;
-},{"react":"node_modules/react/index.js","./Header":"src/Header.js","./Hero":"src/Hero.js"}],"../../.nvm/versions/node/v8.9.4/lib/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Header":"src/Header.js","./Hero":"src/Hero.js","./Footer":"src/Footer.js"}],"../../.nvm/versions/node/v8.9.4/lib/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -20051,7 +20106,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '52772' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '56946' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

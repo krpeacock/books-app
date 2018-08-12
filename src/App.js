@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Header from "./Header";
 import Hero from "./Hero";
+import Footer from "./Footer";
 
 class App extends Component {
   constructor(props) {
@@ -19,10 +20,13 @@ class App extends Component {
     const toggleMenu = this.toggleMenu.bind(this);
     const { isMenuOpen } = this.state;
     return (
-      <div>
-        <Header toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
-        <Hero />
-      </div>
+      <Fragment>
+        <div className="content-wrapper">
+          <Header toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
+          <Hero />
+        </div>
+        <Footer />
+      </Fragment>
     );
   }
 }

@@ -2,8 +2,6 @@
   font-family: "Oswald ExtraLight";
   src: url("../../static/oswald/Oswald-ExtraLight.ttf") format("truetype");
 }
-$OswaldLight: "Oswald ExtraLight", Verdana, Geneva, Tahoma, sans-serif;
-$Verdana: Verdana, Geneva, Tahoma, sans-serif;
 // Some generic rules
 body {
   width: 100vw;
@@ -12,6 +10,8 @@ body {
 }
 
 // Text rules
+$OswaldLight: "Oswald ExtraLight", Verdana, Geneva, Tahoma, sans-serif;
+$Verdana: Verdana, Geneva, Tahoma, sans-serif;
 h1,
 h2 {
   font-family: $OswaldLight;
@@ -21,10 +21,19 @@ a {
   font-family: $Verdana;
 }
 
-#root {
-  width: 90vw;
-  margin: 0 5vw 0 5vw;
+// Display Variables
+$rootWidth: 90vw;
+$rootMargin: (100vw - $rootWidth) / 2;
+$footerHeight: 160px;
 
+#root {
+  width: $rootWidth;
+  margin: 0 $rootMargin 0 $rootMargin;
+  position: relative;
+
+  .content-wrapper {
+    padding-bottom: $footerHeight + 60px;
+  }
   a {
     text-decoration: none;
     color: black;
@@ -50,11 +59,12 @@ a {
         display: block;
         position: absolute;
         top: 30px;
-        right: 5vw;
+        right: $rootMargin;
         height: 37px;
         width: 30px;
       }
       ul {
+        visibility: hidden;
         width: 300px;
         height: 200px;
         display: flex;
@@ -66,17 +76,17 @@ a {
         justify-content: center;
         background-color: #8c8c8c;
         padding: 0;
-        transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s,
-          z-index 0s linear 0.01s;
+        transition: right 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;
 
         &.open {
+          visibility: visible;
           right: 0px;
         }
 
         li {
           opacity: 1;
           margin-left: 0;
-          margin-right: 5vw;
+          margin-right: $rootMargin;
           margin-bottom: 12px;
           list-style-type: none;
         }
@@ -84,18 +94,18 @@ a {
     }
   }
   .hero-container {
-    position: relative;
     z-index: -1;
     display: flex;
     flex-direction: column;
     align-content: center;
     padding-top: 20px;
     img {
-      position: absolute;
       width: 100%;
     }
     .well {
-      top: 0;
+      position: relative;
+      top: -58px;
+
       width: 80%;
       margin: auto;
       padding-bottom: 20px;
@@ -110,6 +120,35 @@ a {
       a {
         text-decoration: underline;
       }
+    }
+  }
+
+  footer {
+    margin-top: -$footerHeight;
+    height: $footerHeight;
+    width: $rootWidth;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    clear: both;
+
+    img {
+      height: 60px;
+      display: block;
+      width: 60px;
+      color: black;
+      margin-right: 15px;
+    }
+
+    p {
+      font-size: 10px;
+    }
+    a {
+      font-size: 12px;
+      margin-bottom: 8px;
     }
   }
 }
