@@ -1,31 +1,53 @@
 import React from "react";
-import InfiniteScroll from "react-infinite-scroll";
+import InfiniteScroll from "react-infinite-scroller";
 import Book from "./Book";
+import "babel-polyfill";
 
-import { bookGenerator } from "./helpers";
+import { fetchBooks } from "./helpers";
 
 export default class BookCollection extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { books: [] };
+    this.state = { books: [], hasMore: true };
+    this.bookGenerator = fetchBooks();
   }
 
   mapBooks() {
-    return this.state.books.map(book => {
-      return <Book book={book} />;
-    });
+    if (this.state.books) {
+      return this.state.books.map(book => {
+        return <Book book={book} />;
+      });
+    }
+    return null;
   }
 
-  loadFunc() {
-    let nextBooks = bookGenerator.next();
-    const books = this.setState({
-      books: this.state.books.join(nextbooks.value),
-      hasMore: nextBooks.done
+  async loadFunc() {
+    let nextBooks = await this.bookGenerator.next();
+    this.setState({
+      books: [...this.state.books, ...nextBooks.value],
+      hasMore: !nextBooks.done
     });
   }
 
   render() {
-    const { books, hasMore } = this.state;
-    return this.mapBooks();
+    const { hasMore } = this.state;
+    const loadFunc = this.loadFunc.bind(this);
+    const mapBooks = this.mapBooks.bind(this);
+    return (
+      <div className="book-collection">
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={loadFunc}
+          hasMore={hasMore}
+          loader={
+            <div className="loader" key={0}>
+              Loading ...
+            </div>
+          }
+        >
+          {mapBooks()}
+        </InfiniteScroll>
+      </div>
+    );
   }
 }

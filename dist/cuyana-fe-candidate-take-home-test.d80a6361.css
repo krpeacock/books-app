@@ -8,7 +8,8 @@ body {
   margin-left: 0; }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: "Oswald ExtraLight", Verdana, Geneva, Tahoma, sans-serif; }
 
 p,
@@ -111,3 +112,30 @@ a {
     #root footer a {
       font-size: 12px;
       margin-bottom: 8px; }
+  #root .book-collection div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: space-between;
+    width: 100%; }
+    #root .book-collection div .book {
+      display: inline-flex;
+      justify-self: space-between;
+      padding: 10px;
+      flex-direction: column;
+      margin: auto;
+      margin-bottom: 15px;
+      width: 40vw;
+      max-width: 45vw;
+      min-width: 300px;
+      border: 1px solid black; }
+      #root .book-collection div .book h3 {
+        margin: 5px 0 5px 0;
+        font-size: 2rem; }
+      #root .book-collection div .book p {
+        margin-top: 0; }
+      #root .book-collection div .book img {
+        width: 100%;
+        min-width: 300px; }

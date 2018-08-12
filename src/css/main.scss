@@ -13,7 +13,8 @@ body {
 $OswaldLight: "Oswald ExtraLight", Verdana, Geneva, Tahoma, sans-serif;
 $Verdana: Verdana, Geneva, Tahoma, sans-serif;
 h1,
-h2 {
+h2,
+h3 {
   font-family: $OswaldLight;
 }
 p,
@@ -149,6 +150,40 @@ $footerHeight: 160px;
     a {
       font-size: 12px;
       margin-bottom: 8px;
+    }
+  }
+  .book-collection div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: space-between;
+    width: 100%;
+    .book {
+      display: inline-flex;
+      justify-self: space-between;
+      padding: 10px;
+      flex-direction: column;
+      margin: auto;
+      margin-bottom: 15px;
+      width: ($rootWidth / 2) - $rootMargin;
+      max-width: ($rootWidth / 2);
+      min-width: 300px;
+
+      border: 1px solid black;
+
+      h3 {
+        margin: 5px 0 5px 0;
+        font-size: 2rem;
+      }
+      p {
+        margin-top: 0;
+      }
+      img {
+        width: 100%;
+        min-width: 300px;
+      }
     }
   }
 }
