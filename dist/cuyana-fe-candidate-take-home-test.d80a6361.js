@@ -19748,7 +19748,33 @@ if ('development' === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/App.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/Header.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  return _react2.default.createElement(
+    "header",
+    null,
+    _react2.default.createElement(
+      "h1",
+      null,
+      "Aptly",
+      _react2.default.createElement("br", null),
+      "Named"
+    )
+  );
+};
+},{"react":"node_modules/react/index.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19760,6 +19786,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
+
+var _Header = require("./Header");
+
+var _Header2 = _interopRequireDefault(_Header);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19782,9 +19812,9 @@ var App = function (_Component) {
     key: "render",
     value: function render() {
       return _react2.default.createElement(
-        "h1",
+        "div",
         null,
-        "Hello Foobar"
+        _react2.default.createElement(_Header2.default, null)
       );
     }
   }]);
@@ -19793,7 +19823,73 @@ var App = function (_Component) {
 }(_react.Component);
 
 exports.default = App;
-},{"react":"node_modules/react/index.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Header":"src/Header.js"}],"../../.nvm/versions/node/v8.9.4/lib/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../../.nvm/versions/node/v8.9.4/lib/node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+  newLink.onload = function () {
+    link.remove();
+  };
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../../.nvm/versions/node/v8.9.4/lib/node_modules/parcel/src/builtins/bundle-url.js"}],"src/css/main.scss":[function(require,module,exports) {
+
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./../../static/oswald/Oswald-ExtraLight.ttf":[["Oswald-ExtraLight.19849c1e.ttf","static/oswald/Oswald-ExtraLight.ttf"],"static/oswald/Oswald-ExtraLight.ttf"],"_css_loader":"../../.nvm/versions/node/v8.9.4/lib/node_modules/parcel/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = require("react");
@@ -19808,12 +19904,14 @@ var _App = require("./src/App");
 
 var _App2 = _interopRequireDefault(_App);
 
+require("./src/css/main.scss");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootDiv = document.getElementById("root");
 
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), rootDiv);
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./src/App":"src/App.js"}],"../../.nvm/versions/node/v8.9.4/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./src/App":"src/App.js","./src/css/main.scss":"src/css/main.scss"}],"../../.nvm/versions/node/v8.9.4/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -19842,7 +19940,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '54088' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '56645' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
