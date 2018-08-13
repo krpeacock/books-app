@@ -19768,18 +19768,22 @@ exports.default = function (_ref) {
     "header",
     null,
     _react2.default.createElement(
-      "h1",
-      null,
+      "a",
+      { href: "/" },
       _react2.default.createElement(
-        "span",
-        { className: "larger" },
-        "Aptly"
-      ),
-      _react2.default.createElement("br", null),
-      _react2.default.createElement(
-        "span",
-        { className: "smaller" },
-        "Named"
+        "h1",
+        null,
+        _react2.default.createElement(
+          "span",
+          { className: "larger" },
+          "Aptly"
+        ),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+          "span",
+          { className: "smaller" },
+          "Named"
+        )
       )
     ),
     _react2.default.createElement(
@@ -19860,7 +19864,7 @@ exports.default = function () {
       ),
       _react2.default.createElement(
         "a",
-        null,
+        { href: "#" },
         "LEARN MORE"
       )
     )
@@ -27491,12 +27495,7 @@ var BookCollection = function (_React$Component) {
           pageStart: 0,
           loadMore: loadFunc,
           hasMore: hasMore,
-          className: "book-collection",
-          loader: _react2.default.createElement(
-            "div",
-            { className: "loader", key: 0 },
-            "Loading ..."
-          )
+          className: "book-collection"
         },
         mapBooks()
       );
@@ -27752,7 +27751,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51091' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '58573' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

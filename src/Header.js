@@ -2,11 +2,13 @@ import React from "react";
 
 export default ({ isMenuOpen, toggleMenu }) => (
   <header>
-    <h1>
-      <span className="larger">Aptly</span>
-      <br />
-      <span className="smaller">Named</span>
-    </h1>
+    <a href="/">
+      <h1>
+        <span className="larger">Aptly</span>
+        <br />
+        <span className="smaller">Named</span>
+      </h1>
+    </a>
     <nav>
       <a href="" id="menu-icon" onClick={toggleMenu} />
       <ul className={isMenuOpen ? "open" : ""}>

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import Book from "./Book";
 import "babel-polyfill";
@@ -39,11 +39,6 @@ export default class BookCollection extends React.Component {
         loadMore={loadFunc}
         hasMore={hasMore}
         className="book-collection"
-        loader={
-          <div className="loader" key={0}>
-            Loading ...
-          </div>
-        }
       >
         {mapBooks()}
       </InfiniteScroll>

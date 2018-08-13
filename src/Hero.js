@@ -12,7 +12,7 @@ export default () => (
         lorem nulla imperdiet felis, vitae fermentum risus lorem ac lacus.
         Mauris eget maximus nisl. Proin molestie quam et luctus maximus.{" "}
       </p>
-      <a>LEARN MORE</a>
+      <a href="#">LEARN MORE</a>
     </div>
   </div>
 );
